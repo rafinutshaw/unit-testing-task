@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for software-testing-assignment/.internal/baseToString.js</title>
+    <title>Code coverage report for software-testing-assignment/.internal/createCaseFirst.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">software-testing-assignment/.internal</a> baseToString.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">software-testing-assignment/.internal</a> createCaseFirst.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/12</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -96,13 +96,8 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -115,53 +110,61 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import isSymbol from '../isSymbol.js'
-&nbsp;
-/** Used as references for various `Number` constants. */
-const INFINITY = 1 / 0
-&nbsp;
-/** Used to convert symbols to primitives and strings. */
-const symbolToString = Symbol.prototype.toString
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import castSlice from './castSlice.js'
+import hasUnicode from './hasUnicode.js'
+import stringToArray from './stringToArray.js'
 &nbsp;
 /**
- * The base implementation of `toString` which doesn't convert nullish
- * values to empty strings.
+ * Creates a function like `lowerFirst`.
  *
  * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
+ * @param {string} methodName The name of the `String` case method to use.
+ * @returns {Function} Returns the new case function.
  */
-function baseToString(value) {
-  // Exit early for strings to avoid a performance hit in some environments.
-  if (typeof value === 'string') {
-    return value
+function createCaseFirst(methodName) {
+  return (string) =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!string) {
+<span class="cstat-no" title="statement not covered" >      return ''</span>
+    }
+&nbsp;
+    const strSymbols = hasUnicode(string)
+      ? <span class="branch-0 cbranch-no" title="branch not covered" >stringToArray(string)</span>
+      : undefined
+&nbsp;
+    const chr = strSymbols
+      ? <span class="branch-0 cbranch-no" title="branch not covered" >strSymbols[0]</span>
+      : string[0]
+&nbsp;
+    const trailing = strSymbols
+      ? <span class="branch-0 cbranch-no" title="branch not covered" >castSlice(strSymbols, 1).join('')</span>
+      : string.slice(1)
+&nbsp;
+    return chr[methodName]() + trailing
   }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (Array.isArray(value)) {
-    // Recursively convert values (susceptible to call stack limits).
-<span class="cstat-no" title="statement not covered" >    return `${value.map(baseToString)}`</span>
-  }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (isSymbol(value)) {
-<span class="cstat-no" title="statement not covered" >    return symbolToString ? symbolToString.call(value) : ''</span>
-  }
-  const result = `${value}`
-  return (result == '0' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >(1 / value) == -INFINITY)</span> ? <span class="branch-0 cbranch-no" title="branch not covered" >'-0' </span>: result
 }
 &nbsp;
-export default baseToString
+export default createCaseFirst
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
