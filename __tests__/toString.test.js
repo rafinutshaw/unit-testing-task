@@ -2,13 +2,14 @@ import toString from "../software-testing-assignment/toString";
 
 describe("toString function tests", () => {
 
+    test("null and undefined", () => {
+        expect(toString(null)).toBe('null');
+        expect(toString(undefined)).toBe('undefined');
+    });
+
     test("numbers to string", () => {
         expect(toString(586)).toBe('586');
         expect(toString(-68)).toBe('-68');
-    });
-
-    test("null values", () => {
-        expect(toString(null)).toBe('');
     });
 
     test("arrays to string", () => {
@@ -22,6 +23,7 @@ describe("toString function tests", () => {
 
     test("boolean to string", () => {
         expect(toString(true)).toBe('true');
+        expect(toString(false)).toBe('false');
     });
 
 });

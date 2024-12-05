@@ -3,8 +3,10 @@ import upperFirst from "../software-testing-assignment/upperFirst";
 
 describe("isEmpty function tests", () => {
 
-    test("for null", () => {
+    test("for null and undefined", () => {
         expect(isEmpty(null)).toBe(true);
+        expect(isEmpty(undefined)).toBe(true);
+        expect(isEmpty()).toBe(true);
     });
 
     test("for boolean values", () => {
@@ -19,17 +21,42 @@ describe("isEmpty function tests", () => {
     });
 
     test("for strings", () => {
+        expect(isEmpty('')).toBe(true);
         expect(isEmpty('test data')).toBe(false);
     })
 
     test("for arrays", () => {
+        expect(isEmpty([])).toBe(true);
         expect(isEmpty([88, 75, 95])).toBe(false);
         expect(isEmpty(['test', 'data'])).toBe(false);
     });
 
     test("for objects", () => {
+        expect(isEmpty({})).toBe(true);
         expect(isEmpty({'Month': 12})).toBe(false);
         expect(isEmpty({'Month': 'December'})).toBe(false);
+    });
+    
+    test("for maps", () => {
+        const map = new Map();
+        expect(isEmpty(map)).toBe(true);
+
+        map.set('key', 'value');
+        expect(isEmpty(map)).toBe(false);
+
+        map.delete('key');
+        expect(isEmpty(map)).toBe(true);
+    });
+
+    test("for sets", () => {
+        const set = new Set();
+        expect(isEmpty(set)).toBe(true);
+
+        set.add(1);
+        expect(isEmpty(set)).toBe(false);
+
+        set.delete(1);
+        expect(isEmpty(set)).toBe(true);
     });
 
 });
