@@ -3,7 +3,7 @@ import upperFirst from "../software-testing-assignment/upperFirst";
 
 describe("isEmpty function tests", () => {
 
-    test("for null and undefined", () => {
+    test("for null, undefined and empty", () => {
         expect(isEmpty(null)).toBe(true);
         expect(isEmpty(undefined)).toBe(true);
         expect(isEmpty()).toBe(true);
