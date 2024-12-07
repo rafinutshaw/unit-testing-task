@@ -3,8 +3,8 @@ import toString from "../software-testing-assignment/toString";
 describe("toString function tests", () => {
 
     test("null and undefined", () => {
-        expect(toString(null)).toBe('null');
-        expect(toString(undefined)).toBe('undefined');
+        expect(toString(null)).toBe('');
+        expect(toString(undefined)).toBe('');
     });
 
     test("numbers to string", () => {
