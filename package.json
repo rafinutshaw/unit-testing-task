@@ -19,6 +19,9 @@
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/*.test.js"
+    ],
     "coverageReporters": [
       "lcov",
       "text"
