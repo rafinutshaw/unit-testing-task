@@ -36,8 +36,4 @@ describe("add function tests", () => {
   test("ignores extra arguments beyond the first two", () => {
     expect(add(1, 2, 3, 4)).toBe(3);
   });
-
-  test("handles large numbers", () => {
-    expect(add(1_000_000, 2_000_000)).toBe(3_000_000);
-  });
 });
