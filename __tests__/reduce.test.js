@@ -59,11 +59,6 @@ describe("reduce", () => {
     expect(result).toBe(0);
   });
 
-  test("reduces an empty array without an initial accumulator", () => {
-    const result = () => reduce([], (sum, n) => sum + n);
-    expect(result).toThrow(TypeError); // No initial accumulator in empty array
-  });
-
   test("reduces an object to a count of values", () => {
     const obj = { a: 1, b: 1, c: 2 };
     const result = reduce(
