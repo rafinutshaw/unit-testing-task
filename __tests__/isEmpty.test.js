@@ -1,5 +1,4 @@
-import isEmpty from "../software-testing-assignment/isEmpty"
-import upperFirst from "../software-testing-assignment/upperFirst";
+import isEmpty from "../software-testing-assignment/isEmpty";
 
 describe("isEmpty function tests", () => {
 
