@@ -28,6 +28,13 @@ jobs:
         run: npm test
 
       - name: Upload coverage to Coveralls
+        if: always() # Run this step regardless of test success or failure
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: npx coveralls < coverage/lcov.info
+        run: |
+          if [ -f coverage/lcov.info ]; then
+            npx coveralls < coverage/lcov.info
+          else
+            echo "lcov.info not found, skipping Coveralls upload."
+            exit 1
+          fi
