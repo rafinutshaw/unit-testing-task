@@ -1,33 +1,57 @@
 [![Coverage Status](https://coveralls.io/repos/github/rafinutshaw/unit-testing-task/badge.svg?branch=main)](https://coveralls.io/github/rafinutshaw/unit-testing-task?branch=main)
 
-This section provides detailed instructions for setting up the local environment, running unit tests, and generating coverage reports locally. The following steps have been taken: 
+# Local Environment Setup and Testing Guide
 
-Required Tools 
+This section provides detailed instructions for setting up the local environment, running unit tests, and generating coverage reports locally.
 
-To set up the local environment the below mentioned tools have been installed 
+## **Required Tools**
 
-**Git 
+To set up the local environment, ensure the following tools are installed on your system:
 
-Node.js 
+- **Git**
+- **Node.js**
+- **npm**
 
-npm **
+---
 
-Environment setup 
+## **Environment Setup**
 
-To set up the local environment, following steps have been taken 
+1. Clone the repository from GitHub using the following command:
+git clone https://github.com/rafinutshaw/unit-testing-task.git
 
-Clone the repository form the GitHub using the command  
-**git clone https://github.com/rafinutshaw/unit-testing-task.git **
 
-Navigate to the project directory and install dependencies using  
-**npm install **
 
-Executing Tests Locally 
+2. Navigate to the project directory:
+cd unit-testing-task
 
-After setting up the environment, the tests can be executed locally. Open the projects in the IDE (used VSCode) and open up a terminal or navigate to the project directory through a terminal and execute all the test cases along with their coverage report using the command 
 
-**npm run test 
-**
-Viewing Coverage Report 
 
-The generated coverage report is in the coverage/ folder of the project and opening the index.html file inside the coverage/lcov-report/ folder will give a detailed and interactive coverage report. 
+3. Install project dependencies:
+npm install
+
+
+
+---
+
+## **Executing Tests Locally**
+
+After setting up the environment, follow these steps to execute tests locally:
+
+1. Open the project in your IDE (e.g., **VSCode**) and open a terminal, or navigate to the project directory through a terminal.
+
+2. Run all test cases along with the coverage report using the following command:
+npm run test
+
+
+
+---
+
+## **Viewing Coverage Report**
+
+1. After running the tests, the generated coverage report will be located in the `coverage/` folder of the project.
+
+2. To view a detailed and interactive coverage report:
+- Navigate to `coverage/lcov-report/`.
+- Open the `index.html` file in your browser.
+
+
